@@ -1,0 +1,27 @@
+{
+  "name": "level-jsondb",
+  "version": "0.1.0",
+  "description": "json database for fast prototyping",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "KapIT",
+  "license": "Closed Source",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "sinon": "~1.9.0",
+    "sinon-chai": "~2.5.0",
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.9.2",
+    "matchdep": "~0.3.0",
+    "grunt-mocha-istanbul": "~1.2.0"
+  },
+  "peerDependencies": {
+    "level": "~0.18.0"
+  },
+  "dependencies": {
+    "bytewise": "~0.7.0",
+    "uuid": "~1.4.1"
+  }
+}
