@@ -9,7 +9,7 @@ Instancing :
 you instance a JSonDB on the server like that : 
 
 ```
-var jsondb = require('jsondb'),
+var jsondb = require('level-jsondb'),
     levelup = require('level');
 
 var db = jsondb(levelup('path_to_where_store_data');
