@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                 options: {
                     mask: '*-test.js',
                     reporter: 'spec',
-                    coverage:true,
+                    coverage: false,
                     root: './lib',
                     reportFormats: ['html']
                 }
