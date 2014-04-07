@@ -1,5 +1,5 @@
 
-var sys = require('sys');
+var utils = require('utils');
 var exec = require('child_process').exec;
 var fs = require('fs');
 var path = require('path');
@@ -8,8 +8,8 @@ function chainCommand(commands, callback) {
 	var command = commands.shift();
 	if (command) {
 		exec(command, function (error, stdout, stderr) {
-			sys.print(stdout);
-	  		sys.print(stderr);
+			utils.print(stdout);
+	  		utils.error(stderr);
 		  	if (error !== null) {
 		  		callback(error);
 		    	console.log('exec error: ' + error);
