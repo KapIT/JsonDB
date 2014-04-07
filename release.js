@@ -8,12 +8,12 @@ function chainCommand(commands, callback) {
 	var command = commands.shift();
 	if (command) {
 		exec(command, function (error, stdout, stderr) {
+			sys.print(stdout);
+	  		sys.print(stderr);
 		  	if (error !== null) {
 		  		callback(error);
 		    	console.log('exec error: ' + error);
-		  		sys.print('stderr: ' + stderr);
 		    } else {
-				sys.print(stdout);
 				chainCommand(commands, callback)
 		    }
 	  	});
