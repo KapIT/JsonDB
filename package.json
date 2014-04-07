@@ -26,6 +26,6 @@
     "uuid": "~1.4.1"
   },
   "publishConfig": {
-    "registry": "http://internal-npm:4873/"
+    "registry": "http://forge.kapit.biz/sinopia/"
   }
 }
