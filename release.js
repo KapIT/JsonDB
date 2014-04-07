@@ -30,10 +30,10 @@ function incrVersion(version) {
 }
 
 var packageJsonPath = path.join(__dirname, 'package.json'),
-	pacackageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8')).version,
-	version = pacackageJson,
+	packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8')).version,
+	version = packageJson,
 	tagName = 'v' + version,
-	newVersion = incrVersion(version)
+	newVersion = incrVersion(version);
 
 chainCommand([
 'npm publish',
@@ -44,10 +44,10 @@ chainCommand([
 	if (err) {
 		return;
 	}
-	pacackageJson.version = newVersion;
-	fs.writeFileSync(packageJsonPath, JSON.stringify(pacackageJson, null, 2) + '\n', 'UTF-8');
+	packageJson.version = newVersion;
+	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n', 'UTF-8');
 	chainCommand([
-		'git commit pacackageJson -m "Incrementing version to ' + newVersion +'"',
+		'git commit ' + ./packageJsonPath + ' -m "Incrementing version to ' + newVersion +'"',
 		'git push origin HEAD:master'
 	])
 });
