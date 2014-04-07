@@ -1,5 +1,5 @@
 {
-  "name": "level-jsondb",
+  "name": "kapit-level-jsondb",
   "version": "0.1.0",
   "description": "json database for fast prototyping",
   "main": "index.js",
