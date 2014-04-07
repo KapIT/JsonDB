@@ -47,7 +47,7 @@ chainCommand([
 	packageJson.version = newVersion;
 	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n', 'UTF-8');
 	chainCommand([
-		'git commit ' + ./packageJsonPath + ' -m "Incrementing version to ' + newVersion +'"',
+		'git commit package.json -m "Incrementing version to ' + newVersion +'"',
 		'git push origin HEAD:master'
 	])
 });
