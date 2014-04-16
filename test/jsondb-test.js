@@ -222,4 +222,31 @@ describe('JsonDB', function () {
             }, 'hello');
         });
     });
+    
+    describe('operation queue', function () {
+        
+        it('should execute operations in a queue', function (done) {
+            var spy = sinon.spy(),
+                spy2 = sinon.spy(),
+                spy3 = sinon.spy();
+            
+            
+            jsondb.set('/', { foo: 'bar'}, spy);
+            jsondb.delete('/', spy2);
+            jsondb.push('/array', { foo: 'bar'});
+            jsondb.push('/array', { gne: 'hello'});
+            jsondb.splice('/array', 0);
+            
+            setTimeout(function () {
+                expect(spy).to.have.been.calledBefore(spy2);
+                expect(spy2).to.have.been.calledBefore(spy3);
+                jsondb.get('/', function (err, data) {
+                    expect(data).to.eql({ array: [{ gne: 'hello'}]});
+                    done();
+                });
+            }, 100);
+        });
+        
+        
+    });
 });
